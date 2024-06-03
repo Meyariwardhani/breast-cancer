@@ -39,13 +39,13 @@ area_mean_input = st.text_input('Input nilai Area mean')
 smoothness_mean_input = st.text_input('Input nilai Smoothness mean')
 compactness_mean_input = st.text_input('Input nilai Compactness mean')
 concavity_mean_input = st.text_input('Input nilai Concavity mean')
-concave points_mean_input = st.text_input('Input nilai Concave points mean')
+concave_points_mean_input = st.text_input('Input nilai Concave points mean')
 symmetry_mean_input = st.text_input('Input nilai Symmetry mean')
 fractal_dimension_mean_input = st.text_input('Input nilai Fractal dimension mean')
 
 
 # Validasi input
-if diagnosis_input.strip() and radius_mean_input.strip() and texture_mean_input.strip() and perimeter_mean_input.strip() and area_mean_input.strip() and smoothness_mean.strip() and compactness_mean.strip() and concavity_mean.strip() and concave points_mean_input.strip() and symmetry_mean_input:
+if diagnosis_input.strip() and radius_mean_input.strip() and texture_mean_input.strip() and perimeter_mean_input.strip() and area_mean_input.strip() and smoothness_mean.strip() and compactness_mean.strip() and concavity_mean.strip() and concave_points_mean_input.strip() and symmetry_mean_input:
     diagnosis = float(diagnosis)
     radius_mean = float(radius_mean)
     texture_mean = float(texture_mean_input)
@@ -54,14 +54,14 @@ if diagnosis_input.strip() and radius_mean_input.strip() and texture_mean_input.
     smoothness_mean = float(smoothness_mean_input)
     compactness_mean = float(compactness_mean_input)
     concavity_mean = float(concavity_mean_input)
-    concave points_mean = float(concave points_mean_input)
+    concave_points_mean = float(concave points_mean_input)
     symmetry_mean_mean = float(symmetry_mean_input)
 
     # Code untuk prediksi
     # Membuat tombol untuk prediksi
     if st.button('Test Prediksi Diagnosis Kanker Payudara'):
         input_data = np.array([diagnosis, radius_mean, texture_mean, perimeter_mean, area_mean, smoothness_mean, compactness_mean,
-        concavity_mean, concave points_mean, symmetry_mean]).reshape(1, -1)
+        concavity_mean, concave_points_mean, symmetry_mean]).reshape(1, -1)
         breastcancer_prediction = breastcancer_model.predict(input_data)
 
         # Menampilkan hasil prediksi
@@ -75,7 +75,7 @@ if diagnosis_input.strip() and radius_mean_input.strip() and texture_mean_input.
             # Melakukan clustering untuk penderita anemia
             # Scaling hanya pada variabel yang digunakan untuk pengklasteran
             clustering_data = np.array([radius_mean, texture_mean, perimeter_mean, area_mean, smoothness_mean, compactness_mean,
-            concavity_mean, concave points_mean, symmetry_mean]).reshape(1, -1)
+            concavity_mean, concave_points_mean, symmetry_mean]).reshape(1, -1)
             clustering_data_scaled = scaler.transform(clustering_data)
 
             # Terapkan PCA pada data yang di-scaling
